@@ -1,0 +1,69 @@
+<html>
+
+    <head>
+        <style>
+            .child {
+                border: 1px solid black;
+            }
+        </style>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+
+        <div id="head">
+            <h1>To Do Application using MongoDB, Node.js, Express.js</h1>
+            <h2>Manuj Jain</h2>
+            <h2>Manuj Web Foundry</h2>
+        </div>
+        <hr>
+
+        <div id="addList">
+            <form action="/" method="post">
+                <input type="text" name="todoTitle" placeholder="Enter Title of List Here" required>
+                <br>
+
+                <div id="addTask">
+                    <input type="text" name="todoTask0" placeholder="Enter Task / List Item Here" id="todoTask0"
+                        required><br>
+                </div>
+
+                <button type="button" id="addMoreTasksButton">➕ Add More Tasks</button>
+                <br><br>
+                <button type="submit">💾 Save This List</button>
+            </form>
+        </div>
+        <hr>
+
+        <div id="container">
+
+            <% todos.reverse().forEach(todo => { %>
+            <div class="child">
+                <form action="/deleteList/<%= todo.todoTitle %>" method="post">
+                    <h2> <%= todo.todoTitle %></h2><button>❌Delete Complete List</button>
+                </form>
+
+                <% todo.todoTasks.forEach(todoTask => { %>
+
+
+                <form action="/update/<%= todo.todoTitle %>/<%= todoTask %>" method="post">
+                    <input type="checkbox">
+                    <input type="text" value="<%= todoTask  %>" name="updatedToDo">
+                    <button>💾</button>
+                </form>
+
+                <form action="/delete/<%= todo.todoTitle %>/<%= todoTask %>" method="post"><button>❌</button>
+                </form>
+                <% }) %>
+            </div>
+            <% }) %>
+
+
+        </div>
+
+        <script src="script.js"></script>
+
+    </body>
+
+</html>
