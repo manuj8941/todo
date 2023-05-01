@@ -54,7 +54,7 @@
                 box-sizing: border-box;
                 margin: 0;
                 flex-basis: 75%;
-              
+
 
 
             }
@@ -70,8 +70,8 @@
             .corner-button {
                 margin: 0;
                 padding: 2px;
-                border-bottom: 1px solid black;
-                border-left: 1px solid black;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.352);
+                border-left: 1px solid rgba(0, 0, 0, 0.352);
                 border-radius: 0 0 0 5px;
             }
 
@@ -105,7 +105,7 @@
                 background-color: transparent;
             }
 
-         
+
 
             form {
                 margin: 0;
@@ -121,9 +121,10 @@
                 transition: all 0.2s ease-in-out;
             }
 
-            button:hover {
+            button:not(.exc):hover {
                 transform: scale(1.1);
             }
+
 
             span {
                 font-size: smaller;
@@ -140,23 +141,38 @@
             <p>©️ Manuj Web Foundry</p>
 
         </div>
+
         <hr>
+        <div>
+            <div class="form-signin col-md-6 col-sm-12 mx-auto ">
 
-        <div id="addList">
-            <form action="/" method="post">
-                <input type="text" name="todoTitle" placeholder="Enter Title of List Here" required>
-                <br>
+                <form action="/" method="post">
+                    <h1 class="h3 mb-3 fw-normal">Add a New Task List</h1>
 
-                <div id="addTask">
-                    <input type="text" name="todoTask0" placeholder="Enter Task / List Item Here" id="todoTask0"
-                        required><br>
-                </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="todoTitle" name="todoTitle" required>
+                        <label for="todoTitle">Enter Title of List Here</label>
+                    </div>
 
-                <button type="button" id="addMoreTasksButton">➕ Add More Tasks</button>
-                <br><br>
-                <button type="submit">💾 Save This List</button>
-            </form>
+                    <div id="addTask">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="todoTask0" name="todoTask0" required>
+                            <label for="todoTask0" id="labelToDoTask0">Enter Task / List Item Here</label>
+                        </div>
+                    </div>
+
+                    <button type="button" id="addMoreTasksButton" class="btn btn-info exc">➕ Add More Tasks</button>
+                    <br><br>
+                    <div class="text-center">
+                        <button class="btn btn-primary col-12 col-md-8 exc" type="submit">💾 Save This List</button>
+                    </div>
+                </form>
+            </div>
+
+
         </div>
+
+
         <hr>
 
         <div id="container">
@@ -185,7 +201,8 @@
 
                             <input type="text" value="<%= todoTask  %>" name="updatedToDo">
 
-                            <button type="submit" style="visibility: hidden;" title="update this task"><i class="bi bi-save2-fill"></i></button>
+                            <button type="submit" style="visibility: hidden;" title="update this task"><i
+                                    class="bi bi-save2-fill"></i></button>
 
                         </form>
                     </div>
