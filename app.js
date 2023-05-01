@@ -31,6 +31,7 @@ const Todo = mongoose.model( "Todo", TodoSchema );
 
 app.get( "/", ( req, res ) =>
 {
+
     Todo.find()
         .then( ( todos ) =>
         {
@@ -120,6 +121,7 @@ app.post( "/update/:todoTitle/:todoTask", ( req, res ) =>
     const todoTask = req.params.todoTask;
     const updatedToDo = req.body.updatedToDo;
 
+
     Todo.findOneAndUpdate( { todoTitle: todoTitle, todoTasks: todoTask }, { $set: { "todoTasks.$": updatedToDo } }, { new: true } )
         .then( ( todo ) =>
         {
@@ -132,6 +134,8 @@ app.post( "/update/:todoTitle/:todoTask", ( req, res ) =>
         } );
 
 } );
+
+
 
 
 

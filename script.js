@@ -43,3 +43,16 @@ checkboxes.forEach( ( checkbox ) =>
 
     } );
 } );
+
+const xs = document.querySelector( "#container" ).querySelectorAll( 'input[type="text"]' );
+xs.forEach( ( x ) =>
+{
+    x.addEventListener( "focusin", ( e ) =>
+    {
+        x.nextElementSibling.style.visibility = "visible";
+    } );
+    x.addEventListener( "focusout", ( e ) =>
+    {
+        x.nextElementSibling.style.visibility = "hidden";   
+    } );
+} );

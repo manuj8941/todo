@@ -24,6 +24,14 @@ Todo.deleteMany( {} )
         new Todo( { todoTitle: "SAARC", todoTasks: [ "India", "Pakistan", "Lanka", "Afghanistan", "Bangladesh", "Nepal", "Maldives" ] } ).save();
         new Todo( { todoTitle: "NATO", todoTasks: [ "United States", "Canada", "Australia", "New Zealand", "United Kingdom", "France", "Germany", "Italy" ] } ).save();
         new Todo( { todoTitle: "Warsaw Pact", todoTasks: [ "Russia", "Ukraine", "Belarus", "Norway", "Poland" ] } ).save();
+
+        new Todo( { todoTitle: "SAARC2", todoTasks: [ "India", "Pakistan", "Lanka", "Afghanistan", "Bangladesh", "Nepal", "Maldives" ] } ).save();
+        new Todo( { todoTitle: "NATO2", todoTasks: [ "United States", "Canada", "Australia", "New Zealand", "United Kingdom", "France", "Germany", "Italy" ] } ).save();
+        new Todo( { todoTitle: "Warsaw Pact2", todoTasks: [ "Russia", "Ukraine", "Belarus", "Norway", "Poland" ] } ).save();
+
+        new Todo( { todoTitle: "SAARC3", todoTasks: [ "India", "Pakistan", "Lanka", "Afghanistan", "Bangladesh", "Nepal", "Maldives" ] } ).save();
+        new Todo( { todoTitle: "NATO3", todoTasks: [ "United States", "Canada", "Australia", "New Zealand", "United Kingdom", "France", "Germany", "Italy" ] } ).save();
+        new Todo( { todoTitle: "Warsaw Pact3", todoTasks: [ "Russia", "Ukraine", "Belarus", "Norway", "Poland" ] } ).save();
     }
 
     );
