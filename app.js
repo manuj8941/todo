@@ -1,8 +1,11 @@
+const hostPort = process.env.PORT || 3000;
 const express = require( "express" );
 const app = express();
 app.use( express.static( __dirname ) );
 app.use( express.urlencoded( { extended: true } ) );
 app.use( express.json() );
+const mongoKey = require( "./mongoKey.js" );
+const mongoHostString = `mongodb+srv://manuj8941:${ mongoKey }@joltlink.cjl86ox.mongodb.net/todoDB?retryWrites=true&w=majority`;
 
 const ejs = require( "ejs" );
 app.set( "views", __dirname );
@@ -10,15 +13,16 @@ app.set( "view engine", "ejs" );
 
 const mongoose = require( "mongoose" );
 mongoose.set( "strictQuery", false );
-mongoose.connect( "mongodb://0.0.0.0/todoDB" )
+// mongoose.connect( "mongodb://0.0.0.0/todoDB" )
+mongoose.connect( mongoHostString )
     .then( ( response ) =>
     {
-        console.log( `Connected to MongoDB Local` );
+        console.log( `Connected to MongoDB Atlas` );
 
     } )
     .catch( ( error ) =>
     {
-        console.log( `Oh No MongoDB Local Connection Error: ${ error }` );
+        console.log( `Oh No MongoDB Altas Connection Error: ${ error }` );
     } );
 
 const TodoSchema = new mongoose.Schema(
@@ -139,7 +143,8 @@ app.post( "/update/:todoTitle/:todoTask", ( req, res ) =>
 
 
 
-app.listen( "3000", () =>
+app.listen( hostPort, () =>
 {
-    console.log( "Server opened on port 3000!" );
+    console.log( `SERVER STARTED ON ${ hostPort }` );
+
 } );
