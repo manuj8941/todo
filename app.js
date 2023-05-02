@@ -4,8 +4,8 @@ const app = express();
 app.use( express.static( __dirname ) );
 app.use( express.urlencoded( { extended: true } ) );
 app.use( express.json() );
-// const mongoKey = require( "./mongoKey.js" );
-const mongoKey = "REbaBgwaahtLVEJL";
+const mongoKey = require( "./mongoKey.js" ) || mongoKeyEnv;
+
 const mongoHostString = `mongodb+srv://manuj8941:${ mongoKey }@joltlink.cjl86ox.mongodb.net/todoDB?retryWrites=true&w=majority`;
 
 const ejs = require( "ejs" );
