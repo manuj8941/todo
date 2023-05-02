@@ -4,7 +4,26 @@ const app = express();
 app.use( express.static( __dirname ) );
 app.use( express.urlencoded( { extended: true } ) );
 app.use( express.json() );
-const mongoKey = require( "./mongoKey.js" ) || mongoKeyEnv;
+
+// const mongoKey = mongoKeyEnv || process.env.mongoKeyEnv || require( "./mongoKey.js" );
+
+let mongoKey;
+try
+{
+    mongoKey = require( "./mongoKey.js" );
+} catch ( error )
+{
+    if ( typeof mongoKeyEnv !== 'undefined' )
+    {
+        mongoKey = mongoKeyEnv;
+    } else
+    {
+        mongoKey = process.env.mongoKeyEnv;
+    }
+}
+
+
+
 
 const mongoHostString = `mongodb+srv://manuj8941:${ mongoKey }@joltlink.cjl86ox.mongodb.net/todoDB?retryWrites=true&w=majority`;
 

@@ -16,3 +16,19 @@
         </div>
 
     try     railway
+
+    // const mongoKey = () =>
+// {
+//     try
+//     {
+//         return require( "./mongoKey.js" );
+//     } catch {
+//         return mongoKeyEnv;
+//     }
+// };
+
+// try {
+//     mongoKey = require( "./mongoKey.js" );
+//   } catch (error) {
+//     mongoKey = process.env.mongoKeyEnv;
+//   }
